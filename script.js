@@ -9,7 +9,13 @@ function Book(name, author, pages, published, read) {
 }
 
 function addBookToLibrary() {
-	let newBook = prompt("Enter a book name!");
+	let name = prompt("Enter a book name!");
+	let author = prompt("Enter the author's name!");
+	let pages = prompt("Enter the number of pages!");
+	let published = prompt("Enter the published date!");
+	let read = prompt("Have you read this book?");
+
+	let newBook = new Book(name, author, pages, published, read);
 	library.push(newBook);
 	return console.log(library);
 }
