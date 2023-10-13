@@ -12,7 +12,7 @@ function Book(name, author, pages, published, read) {
 
 function addBookToLibrary() {
 	form.addEventListener("submit", (e) => {
-		e.preventDefault;
+		e.preventDefault();
 
 		let name = document.getElementById("book-input").value;
 		let author = document.getElementById("author-input").value;
