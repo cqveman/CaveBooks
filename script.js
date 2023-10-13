@@ -1,3 +1,5 @@
+const form = document.querySelector("#book-form");
+
 const library = [];
 
 function Book(name, author, pages, published, read) {
@@ -9,15 +11,19 @@ function Book(name, author, pages, published, read) {
 }
 
 function addBookToLibrary() {
-	let name = prompt("Enter a book name!");
-	let author = prompt("Enter the author's name!");
-	let pages = prompt("Enter the number of pages!");
-	let published = prompt("Enter the published date!");
-	let read = prompt("Have you read this book?");
+	form.addEventListener("submit", (e) => {
+		e.preventDefault;
 
-	let newBook = new Book(name, author, pages, published, read);
-	library.push(newBook);
-	return console.log(library);
+		let name = document.getElementById("book-input").value;
+		let author = document.getElementById("author-input").value;
+		let pages = document.getElementById("pages-input").value;
+		let published = document.getElementById("published-input").value;
+		let read = document.getElementById("read-check").value;
+		
+		let newBook = new Book(name, author, pages, published, read);
+		library.push(newBook);
+		return console.log(library);
+	});
 }
 
 addBookToLibrary();
