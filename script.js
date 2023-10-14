@@ -1,8 +1,6 @@
 const form = document.querySelector("#book-form");
 const row = document.querySelector(".row");
 
-let div = document.createElement("div");
-
 const library = [];
 
 function Book(name, author, pages, published, read) {
@@ -28,18 +26,15 @@ function addBookToLibrary() {
 		let newBook = new Book(name, author, pages, published, read);
 		library.push(newBook);
 
-		row.innerHTML = "";
-
-		library.forEach((book) => {
-			const bookCard = generateBookCard(book);
-			row.appendChild(bookCard);
-		});
+		const bookCard = generateBookCard(newBook, library.length - 1);
+		row.appendChild(bookCard);
 	});
 }
 
-function generateBookCard(book) {
+function generateBookCard(book, index) {
 	const colDiv = document.createElement("div");
 	colDiv.classList.add("col-md-6", "col-lg-4", "mb-5");
+	colDiv.dataset.removeIndex = index;
 
 	const cardDiv = document.createElement("div");
 	cardDiv.classList.add("card");
@@ -88,6 +83,12 @@ function generateBookCard(book) {
 	);
 	deleteButton.setAttribute("type", "button");
 	deleteButton.textContent = "Delete";
+
+	deleteButton.addEventListener("click", () => {
+		const removeIndex = parseInt(colDiv.dataset.removeIndex);
+		library.splice(removeIndex, 1);
+		row.removeChild(colDiv);
+	});
 
 	colDiv.appendChild(cardDiv);
 	cardDiv.appendChild(cardHeaderDiv);
