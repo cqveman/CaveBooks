@@ -21,14 +21,21 @@
 		<div class="container my-5">
 			<div class="row"></div>
 			<!-- Button trigger modal -->
-			<button
-				type="button"
-				class="btn btn-primary"
+			<img
+				src="add-icon.svg"
+				alt="add book icon"
+				class="btn btn-primary btn-lg"
 				data-bs-toggle="modal"
 				data-bs-target="#bookModal"
-			>
-				Add book
-			</button>
+				style="
+					position: fixed;
+					bottom: 20px;
+					right: 20px;
+					z-index: 999;
+					filter: invert(100%) sepia(0%) saturate(2%)
+						hue-rotate(214deg) brightness(100%) contrast(101%);
+				"
+			/>
 			<!-- Modal -->
 			<div
 				class="modal fade"
